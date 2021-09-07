@@ -23,7 +23,8 @@ char* device_type(struct stat* sb) {
 }
 
 
-void shit_happend() {
+void lstat_error() {
+    // ошибки с человеческим описанием
     switch (errno) {
         case EACCES: printf("Permission denied!\n");                    break;
         case EBADFD: printf("File descriptor in bad state!\n");         break;
@@ -49,7 +50,7 @@ int main(int argc, char* argv[]) {
     struct stat sb;
 
     if(lstat(argv[1], &sb) == -1) {
-        shit_happend();
+        lstat_error();
         exit(0);
     }
 
