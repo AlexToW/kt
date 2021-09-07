@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
 
     if(lstat(argv[1], &sb) == -1) {
         lstat_error();
-        exit(0);
+        exit(1);
     }
 
     printf("Тип файла:              %s\n", device_type(&sb));
